@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import { Provider } from "mobx-react";
 import reportWebVitals from './reportWebVitals';
-import Store from "./store";
+import RootStore from "./store/RootStore";
 
-const store = new Store()
+const rootStore = new RootStore()
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider {...rootStore}>
       <App />
     </Provider>
   </React.StrictMode>,

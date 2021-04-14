@@ -1,13 +1,13 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import Store from '../../store';
+import CountStore from './CountStore';
 
 interface IProps {
-  store?: Store
+  countStore?: CountStore
 }
 interface IState {}
 
-@inject("store")
+@inject("countStore")
 @observer
 class Counter extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
@@ -15,12 +15,15 @@ class Counter extends React.PureComponent<IProps, IState> {
     this.state = {}
   }
   private onClickAdd = () => {
-    this.props.store!.add()
+    const { num, update } = this.props.countStore!;
+    const cur = num + 1
+    update(cur)
   }
   render() {
-    const { num } = this.props.store!;
+    const { num, storeName } = this.props.countStore!;
    return (
      <div>
+       <p>{ storeName }</p>
        <button> - </button>
        <span>{num}</span>
        <button onClick={this.onClickAdd}> + </button>
