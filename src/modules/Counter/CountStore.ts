@@ -1,10 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import RootStore from "../../store/RootStore";
 
 class CountStore {
-  rootStore: RootStore;
-  constructor(rootStore: RootStore) {
-    this.rootStore = rootStore
+  constructor() {
     makeAutoObservable(this);
   }
   public storeName: string = "CountStore";

@@ -6,9 +6,9 @@ class RootStore {
   todoListStore: TodoListStore;
 
   constructor() {
-    this.countStore = new CountStore(this);
-    this.todoListStore = new TodoListStore(this);
+    this.countStore = new CountStore();
+    this.todoListStore = new TodoListStore();
   }
 }
 
-export default RootStore;
+export default new RootStore();

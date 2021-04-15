@@ -1,5 +1,4 @@
 import { action, computed, observable, makeObservable } from "mobx";
-import RootStore from "../../store/RootStore";
 
 export type Todo = {
   id: string,
@@ -9,9 +8,7 @@ export type Todo = {
 }
 
 class TodoListStore {
-  rootStore: RootStore;
-  constructor(rootStore: RootStore) {
-    this.rootStore = rootStore;
+  constructor() {
     makeObservable(this);
   }
   public storeName: string = "TodoListStore";

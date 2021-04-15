@@ -1,11 +1,11 @@
 import React from 'react';
-import { inject, observer } from 'mobx-react';
+import { inject, observer, Provider } from 'mobx-react';
 import CountStore from './CountStore';
 
 interface IProps {
   countStore?: CountStore
 }
-interface IState {}
+interface IState { }
 
 @inject("countStore")
 @observer
@@ -32,4 +32,8 @@ class Counter extends React.PureComponent<IProps, IState> {
  }
 }
 
-export default Counter
+const CounterView = () => <Provider countStore={new CountStore()}>
+  <Counter />
+</Provider>
+
+export default CounterView

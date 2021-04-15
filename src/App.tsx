@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Counter />
       <TodoList />
+      <Counter />
     </div>
   );
 }
